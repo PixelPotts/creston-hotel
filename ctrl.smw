@@ -10,110 +10,6 @@
 #release_config_set_1
 #release_config_set_2
 
-
-// Declare systems
-Lighting_System Light_System;
-HVAC_System HVAC_System;
-AV_System AV_System;
-Security_System Sec_System;
-Environmental_Sensor_System Env_Sensor_System;
-
-// Configuration settings for each subsystem
-
-// Lighting System settings
-bool LIGHTS_ON = true;
-int LIGHT_BRIGHTNESS = 70;
-string LIGHT_MODE = "NORMAL";
-bool LIGHT_AUTO_DIM = true;
-int LIGHT_DIM_LEVEL = 30;
-int LIGHT_DIM_TIME = 10;
-bool LIGHT_MOTION_DETECT = true;
-bool LIGHT_EVENING_MODE = false;
-string LIGHT_COLOR = "WHITE";
-bool LIGHT_NIGHT_MODE = false;
-
-// HVAC System settings
-bool HVAC_ON = true;
-int HVAC_TEMPERATURE = 72;
-bool HVAC_AUTO_MODE = true;
-string HVAC_MODE = "COOL";
-int HVAC_FAN_SPEED = 2;
-bool HVAC_ECO_MODE = false;
-bool HVAC_QUIET_MODE = false;
-int HVAC_AUTO_TEMP = 75;
-bool HVAC_HEAT_MODE = false;
-int HVAC_COOL_TEMP = 65;
-
-// AV System settings
-bool AV_ON = true;
-int AV_VOLUME = 50;
-string AV_SOURCE = "HDMI1";
-bool AV_MUTE = false;
-string AV_MODE = "MOVIE";
-bool AV_SURROUND = true;
-int AV_BRIGHTNESS = 50;
-bool AV_PARENTAL_CONTROL = false;
-int AV_CONTRAST = 50;
-string AV_AUDIO_MODE = "DOLBY";
-
-// Security System settings
-bool SECURITY_ON = true;
-bool SECURITY_ALARM = false;
-string SECURITY_MODE = "AWAY";
-bool SECURITY_MOTION_DETECT = true;
-bool SECURITY_WINDOW_SENSOR = true;
-bool SECURITY_DOOR_SENSOR = true;
-bool SECURITY_GLASS_BREAK_SENSOR = true;
-bool SECURITY_SMOKE_DETECTOR = true;
-bool SECURITY_CO_DETECTOR = true;
-string SECURITY_KEYPAD_CODE = "1234";
-
-// Environmental Sensor System settings
-bool ENV_SENSOR_ON = true;
-bool ENV_SENSOR_TEMP_DETECT = true;
-int ENV_SENSOR_TEMP_THRESHOLD = 80;
-bool ENV_SENSOR_HUMIDITY_DETECT = true;
-int ENV_SENSOR_HUMIDITY_THRESHOLD = 70;
-bool ENV_SENSOR_LIGHT_DETECT = true;
-int ENV_SENSOR_LIGHT_THRESHOLD = 300;
-bool ENV_SENSOR_SOUND_DETECT = true;
-int ENV_SENSOR_SOUND_THRESHOLD = 50;
-bool ENV_SENSOR_MOTION_DETECT = true;
-int ENV_SENSOR_MOTION_THRESHOLD = 10;
-
-
-
-// Main function
-public void Main()
-{
-   // Initialize systems
-   Light_System.Initialize();
-   HVAC_System.Initialize();
-   AV_System.Initialize();
-   Sec_System.Initialize();
-   Env_Sensor_System.Initialize();
-
-   // Set default states
-   Light_System.SetDefaultState();
-   HVAC_System.SetDefaultState();
-   AV_System.SetDefaultState();
-   Sec_System.SetDefaultState();
-   Env_Sensor_System.SetDefaultState();
-}
-
-#include simplsharp
-#user_functions
-#local_functions
-#gloabl_functions
-
-#test_config_set_1
-#test_config_set_2
-#update_config_set_1
-#update_config_set_2
-#release_config_set_1
-#release_config_set_2
-
-
 // Declare systems
 Lighting_System Light_System;
 HVAC_System HVAC_System;
@@ -372,8 +268,7 @@ public class KingRoom : Room
     {
         base.ControlLight(command);
 
-        // Additional logic specific to KingRoom lighting control
-        if (RoomType == "ROOM_KING")
+                if (RoomType == "ROOM_KING")
         {
             if (command == "MOOD")
             {
@@ -386,8 +281,7 @@ public class KingRoom : Room
     {
         base.ControlHVAC(command, temperature);
 
-        // Additional logic specific to KingRoom HVAC control
-        if (RoomType == "ROOM_KING")
+                if (RoomType == "ROOM_KING")
         {
             if (command == "ECO")
             {
@@ -404,8 +298,7 @@ public class KingRoom : Room
     {
         base.ControlAV(command);
 
-        // Additional logic specific to KingRoom AV control
-        if (RoomType == "ROOM_KING")
+                if (RoomType == "ROOM_KING")
         {
             if (command == "SURROUND_ON")
             {
@@ -422,8 +315,7 @@ public class KingRoom : Room
     {
         base.ControlSecurity(command);
 
-        // Additional logic specific to KingRoom security control
-        if (RoomType == "ROOM_KING")
+                if (RoomType == "ROOM_KING")
         {
             if (command == "SET_CODE")
             {
@@ -436,8 +328,7 @@ public class KingRoom : Room
     {
         base.ControlEnvSensor(command);
 
-        // Additional logic specific to KingRoom environmental sensor control
-        if (RoomType == "ROOM_KING")
+                if (RoomType == "ROOM_KING")
         {
             if (command == "SOUND")
             {
@@ -450,8 +341,7 @@ public class KingRoom : Room
         }
     }
 
-    // Additional methods specific to KingRoom
-    protected void SetMoodLighting() { /* Code to set mood lighting in KingRoom */ }
+        protected void SetMoodLighting() { /* Code to set mood lighting in KingRoom */ }
     protected void SetEcoMode() { /* Code to set eco mode for HVAC in KingRoom */ }
     protected void SetQuietMode() { /* Code to set quiet mode for HVAC in KingRoom */ }
     protected void SetSurroundSoundOn() { /* Code to turn on surround sound in KingRoom */ }
